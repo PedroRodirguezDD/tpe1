@@ -21,6 +21,12 @@ class View{
         $this->smarty->display("viewHome.tpl");
     }
 
+    //PROBANDO DIVISION DE SECCIONES
+    function showArtistas($artistas){
+        $this->smarty->assign('artistas', $artistas);
+        $this->smarty->display("viewArtista.tpl");
+    }
+
     function showCancion($cancion){
         $this->smarty->assign('cancion',$cancion);
         $this->smarty->display("viewCancion.tpl");

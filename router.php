@@ -19,6 +19,9 @@ switch($param[0]){
         $controlador->showHome();
         //$controlador->showArtistas();
         break;
+    case 'artistas':
+        $controlador->showArtistas();
+        break;
     case 'vermas':
         $controlador->showCancion($param[1]);
         break;

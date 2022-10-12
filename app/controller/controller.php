@@ -19,12 +19,19 @@ class Controller{
     function showHome(){
         $canciones=$this->modelCancion->getCanciones();
         //aca vo a traer el los artistas con el modelo de artistas y luego con la vista se los voy a pasar al form.tpl
+
         $artistas=$this->modelArtista->getArtistas();
         $this->view->selectArtistas($artistas);
 
         $this->view->showHome($canciones,$artistas);
 
         //agrego form para agregar artistas
+    }
+
+    //ESTA ES LA PRUEBA
+    function showArtistas(){
+        $artistas=$this->modelArtista->getArtistas();
+        $this->view->showArtistas($artistas);
     }
 
     function showCancion($id){
@@ -126,7 +133,7 @@ class Controller{
         //en ese caso no modifico para no afectar los valores de la tabla cancion
         if(empty($cancion)){
             $this->modelArtista->editar($nombre,$id);
-            header("Location:".BASE_URL);
+            header("Location:".BASE_URL."artistas");
         }
         else{
             $this->view->error("No puedes modificar este artista ya que esta en uso");

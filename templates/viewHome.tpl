@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+
 
 <table class="table table-dark table-striped-columns">
     <thead>
@@ -32,6 +32,7 @@
     </tbody>
 </table>
 
+<!--
 {include file="form_artista.tpl"}
 
 <h2>Lista de artistas:</h2>
@@ -45,6 +46,7 @@
         </li>
     {/foreach}
 </ul> 
+-->
 
 
 {include file="footer.tpl"}

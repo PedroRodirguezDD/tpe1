@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 
-<a href="inicio">Volver</a>
+<a href="artistas">Volver</a>
 
 <h2>{$mensaje}</h2>
 

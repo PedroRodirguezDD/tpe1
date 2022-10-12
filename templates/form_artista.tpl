@@ -1,5 +1,6 @@
-{include file="header.tpl"}
-{if !empty($art)} <a href="inicio">Volver</a>{/if}
+{if !empty($art)} {include file="header.tpl"}{/if}
+    
+{if !empty($art)} <a href="artistas">Volver</a>{/if}
 
 <form action="{if !empty($art)}editarArtista{else}addArtista{/if}" method="get">
     {if !empty($art)}<h2>Formulario para editar artista</h2>{else}<h2>Formulario para agregar artista</h2>{/if}

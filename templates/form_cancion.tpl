@@ -7,8 +7,7 @@
 
     {if !empty($cancion)}
       <div class="mb-3">
-        <label  class="form-label">Id:</label>
-        <input name="id" type="text"  value="{$cancion->id}" class="form-control" >
+        <input name="id" type="hidden"  value="{$cancion->id}" class="form-control" >
       </div>
     {/if}
     <div class="mb-3">

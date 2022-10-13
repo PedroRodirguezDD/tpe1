@@ -2,17 +2,11 @@
 
 include "./libs/libs/Smarty.class.php";
 
-class View{
+class ViewCancion{
     private $smarty;
 
     function __construct(){
         $this->smarty=new Smarty();
-    }
-
-
-    function error($msj){
-        $this->smarty->assign('mensaje', $msj);
-        $this->smarty->display('error.tpl');
     }
 
     function showHome($canciones,$artistas){
@@ -21,27 +15,9 @@ class View{
         $this->smarty->display("viewHome.tpl");
     }
 
-    //PROBANDO DIVISION DE SECCIONES
-    function showArtistas($artistas){
-        $this->smarty->assign('artistas', $artistas);
-        $this->smarty->display("viewArtista.tpl");
-    }
-
     function showCancion($cancion){
         $this->smarty->assign('cancion',$cancion);
         $this->smarty->display("viewCancion.tpl");
-    }
-
-    /*
-    function showArtistas($artistas){
-        $this->smarty->assign('artistas',$artistas);
-        $this->smarty->display("viewArtistas.tpl");
-    }*/
-
-    function showItems($items,$artista){
-        $this->smarty->assign('items', $items);
-        $this->smarty->assign('artista', $artista);
-        $this->smarty->display('viewItems.tpl');
     }
 
     function selectArtistas($artistas){
@@ -58,8 +34,4 @@ class View{
         $this->smarty->display('form_cancion.tpl');
     }
 
-    function formEditar_artista($artista){
-        $this->smarty->assign('art',$artista);
-        $this->smarty->display('form_artista.tpl');
-    }
 }

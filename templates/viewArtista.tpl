@@ -8,8 +8,10 @@
         <li>
             {$artista->nombre} - id: {$artista->id} 
             <a href="itemXcategoria/{$artista->id}">Ver canciones</a>
-            <a href="deleteArtista/{$artista->id}" type="button" class="btn btn-danger">Eliminar</a>
-            <a href="formEditar_artista/{$artista->id}" type="button" class="btn btn-success">Editar</a>
+            {if isset($smarty.session.user)}
+                <a href="deleteArtista/{$artista->id}" type="button" class="btn btn-danger">Eliminar</a>
+                <a href="formEditar_artista/{$artista->id}" type="button" class="btn btn-success">Editar</a>
+            {/if}    
         </li>
     {/foreach}
 </ul> 

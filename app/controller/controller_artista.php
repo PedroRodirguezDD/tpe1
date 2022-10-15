@@ -6,14 +6,19 @@ class ControllerArtista{
     private $modelCan;
     private $view; 
     private $modelArt;
+    private $helper;
 
     function __construct(){
         $this->modelCan=new ModelCancion();
         $this->view=new ViewArtista();
         $this->modelArt=new ModelArtista();
+        $this->helper=new HelperUser();
     }
 
     function showArtistas(){
+
+        session_start();
+
         $artistas=$this->modelArt->getArtistas();
         $this->view->showArtistas($artistas);
     }
@@ -49,6 +54,9 @@ class ControllerArtista{
     }
 
     function formEditar_artista($id){
+
+        $this->helper->verificarLogin();
+
         $artista=$this->modelArt->getArtista($id);
         $this->view->formEditar_artista($artista);
     }

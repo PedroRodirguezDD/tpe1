@@ -2,6 +2,7 @@
 
 include_once "app/controller/controller_cancion.php";
 include_once "app/controller/controller_artista.php";
+include_once "app/controller/controller_user.php";
 
 define('BASE_URL','//'.$_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].dirname($_SERVER['PHP_SELF']).'/');
 
@@ -15,6 +16,7 @@ $param=explode('/',$info);
 
 $controlador_cancion=new ControllerCancion();
 $controlador_artista=new ControllerArtista();
+$controlador_user=new ControllerUser();
 
 switch($param[0]){
     case 'inicio':
@@ -54,4 +56,12 @@ switch($param[0]){
     case 'editarArtista':
         $controlador_artista->editarArtista();
         break;
+    case 'login':
+        $controlador_user->login();
+        break;
+    case 'verificacion':
+        $controlador_user->verificacion();
+        break;
+    case 'logout':
+        $controlador_user->logout();
 }

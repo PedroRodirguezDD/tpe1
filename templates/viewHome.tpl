@@ -23,8 +23,10 @@
             {/foreach}
             <td>
                 <a href="vermas/{$cancion->id}" type="button" class="btn btn-primary">Ver mas</a>
+                {if isset($smarty.session.user)}
                 <a href="deleteCancion/{$cancion->id}" type="button" class="btn btn-danger">Eliminar</a>
                 <a href="formEditar_cancion/{$cancion->id}" type="button" class="btn btn-success">Editar</a>
+                {/if}
             </td>
         </tr>
     {/foreach}

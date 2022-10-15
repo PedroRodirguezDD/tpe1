@@ -1,7 +1,8 @@
 {include file="header.tpl"}
 
 <a href="artistas">Volver</a>
-
-<h2>{$mensaje}</h2>
+<div class="alert alert-danger mt-3">
+    <h2>{$mensaje}</h2>
+</div>
 
 {include file="footer.tpl"}

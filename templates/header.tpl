@@ -21,6 +21,15 @@
         <li class="nav-item">
           <a class="nav-link" href="artistas">Artistas</a>
         </li>
+        {if !isset($smarty.session.user)}
+        <li class="nav-item">
+          <a class="nav-link" href="login">Login</a>
+        </li>
+        {else}
+        <li class="nav-item">
+          <a class="nav-link" href="logout">Logout ({$smarty.session.user})</a>
+        </li>
+        {/if}
       </ul>
     </div>
   </div>

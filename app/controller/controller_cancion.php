@@ -3,19 +3,30 @@
 include "app/model/modelCancion.php";
 include "app/view/view_cancion.php";
 include "app/model/modelArtista.php";
+//probando
+include "app/helper/helper_user.php";
 
 class ControllerCancion{
     private $modelCancion;
     private $view;
     private $modelArtista;
+    //probando
+    private $helper;
 
     function __construct(){
         $this->modelCancion=new ModelCancion();
         $this->view=new ViewCancion();
         $this->modelArtista=new ModelArtista();
+        //probando
+        $this->helper=new HelperUser();
+        //$this->helper->verificarLogin();
+        
     }
 
     function showHome(){
+
+        session_start();
+        
         $canciones=$this->modelCancion->getCanciones();
         //aca vo a traer el los artistas con el modelo de artistas y luego con la vista se los voy a pasar al form.tpl
 
@@ -51,6 +62,9 @@ class ControllerCancion{
     }
     //
     function formEditar_cancion($id){
+
+        $this->helper->verificarLogin();
+
         $cancion=$this->modelCancion->getCancion($id);
         $artistas=$this->modelArtista->getArtistas();
         

@@ -25,20 +25,34 @@ class ModelArtista{
         $artista=$query->fetch(PDO::FETCH_OBJ);
         return $artista;
     }
-
-    function add($nombre){
-        $query=$this->db->prepare("INSERT INTO artista (nombre) VALUES (?)");
-        $query->execute([$nombre]);
+//cambiando
+    function add($nombre,$imagen=null){
+        $pathImg=null;
+        if($imagen){
+            $pathImg=$this->cargarImagen($imagen);
+        }
+        $query=$this->db->prepare("INSERT INTO artista (nombre,imagen) VALUES (?,?)");
+        $query->execute([$nombre,$pathImg]);
     }
 
     function delete($id){
         $query=$this->db->prepare("DELETE FROM artista WHERE id=?");
         $query->execute([$id]);
     }
-
-    function editar($nombre,$id){
-        $query=$this->db->prepare("UPDATE artista SET nombre=? WHERE id=?");
-        $query->execute([$nombre,$id]);
+//cambiando
+    function editar($nombre,$id,$imagen=null){
+        $pathImg=null;
+        if($imagen){
+            $pathImg=$this->cargarImagen($imagen);
+        }
+        $query=$this->db->prepare("UPDATE artista SET nombre=?, imagen=? WHERE id=?");
+        $query->execute([$nombre,$pathImg,$id]);
+    }
+//cambiando
+    function cargarImagen($imagen){
+        $target = 'img/artista/' . uniqid() . '.jpg';
+        move_uploaded_file($imagen, $target);
+        return $target;
     }
 
     

@@ -5,7 +5,7 @@
     
     {if !empty($art)} <a href="artistas">Volver</a>{/if}
 
-    <form action="{if !empty($art)}editarArtista{else}addArtista{/if}" method="get">
+    <form action="{if !empty($art)}editarArtista{else}addArtista{/if}" method="post" enctype="multipart/form-data">
         {if !empty($art)}<h2>Formulario para editar artista</h2>{else}<h2>Formulario para agregar artista</h2>{/if}
 
         {if !empty($art)}
@@ -17,7 +17,10 @@
         <label  class="form-label">Nombre:</label>
         <input name="nombre" value="{if !empty($art)}{$art->nombre}{/if}" type="text" class="form-control" required >
         </div>
-        
+        <div class="mb-3">
+        <label  class="form-label">imagen:</label>
+        <input name="imagen" value="{if !empty($art)}{$art->imagen}{/if}" type="file" class="form-control">
+        </div>
         <button type="submit" class="btn btn-primary">{if !empty($art)}Editar{else}Agregar{/if}</button>
     </form>
 {/if}

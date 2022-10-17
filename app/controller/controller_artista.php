@@ -28,11 +28,16 @@ class ControllerArtista{
         $artista=$this->modelArt->getArtista($id);
         $this->view->showItems($items, $artista);
     }
-
+//cambiando
     function addArtista(){
-        $nombre=$_GET['nombre'];
-
-        $this->modelArt->add($nombre);
+        $nombre=$_POST['nombre'];
+        if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" 
+        || $_FILES['imagen']['type'] == "image/png" ) {
+            $this->modelArt->add($nombre,$_FILES['imagen']['tmp_name']);
+        }
+        else{
+            $this->modelArt->add($nombre);
+        }
         
         header("Location:".BASE_URL."artistas");
     } 
@@ -60,10 +65,10 @@ class ControllerArtista{
         $artista=$this->modelArt->getArtista($id);
         $this->view->formEditar_artista($artista);
     }
-
+//cambiando
     function editarArtista(){
-        $id=$_GET['id'];
-        $nombre=$_GET['nombre'];
+        $id=$_POST['id'];
+        $nombre=$_POST['nombre'];
 
         $cancion=$this->modelCan->getItems($id);
 
@@ -71,7 +76,13 @@ class ControllerArtista{
         //si coincide es porq el artista que quiero modificar ya tiene relacion con canciones que se encuentran en la otra tabla
         //en ese caso no modifico para no afectar los valores de la tabla cancion
         if(empty($cancion)){
-            $this->modelArt->editar($nombre,$id);
+            if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" 
+            || $_FILES['imagen']['type'] == "image/png" ) {
+                $this->modelArt->editar($nombre,$id,$_FILES['imagen']['tmp_name']);
+            }
+            else{
+                $this->modelArt->editar($nombre,$id);
+            }
             header("Location:".BASE_URL."artistas");
         }
         else{

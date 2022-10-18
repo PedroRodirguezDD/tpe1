@@ -28,7 +28,7 @@ class ControllerArtista{
         $artista=$this->modelArt->getArtista($id);
         $this->view->showItems($items, $artista);
     }
-//cambiando
+
     function addArtista(){
         $nombre=$_POST['nombre'];
         if($_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/jpeg" 
@@ -65,7 +65,7 @@ class ControllerArtista{
         $artista=$this->modelArt->getArtista($id);
         $this->view->formEditar_artista($artista);
     }
-//cambiando
+
     function editarArtista(){
         $id=$_POST['id'];
         $nombre=$_POST['nombre'];

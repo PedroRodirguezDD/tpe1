@@ -25,7 +25,7 @@ class ModelArtista{
         $artista=$query->fetch(PDO::FETCH_OBJ);
         return $artista;
     }
-//cambiando
+
     function add($nombre,$imagen=null){
         $pathImg=null;
         if($imagen){
@@ -39,7 +39,7 @@ class ModelArtista{
         $query=$this->db->prepare("DELETE FROM artista WHERE id=?");
         $query->execute([$id]);
     }
-//cambiando
+
     function editar($nombre,$id,$imagen=null){
         $pathImg=null;
         if($imagen){
@@ -48,7 +48,7 @@ class ModelArtista{
         $query=$this->db->prepare("UPDATE artista SET nombre=?, imagen=? WHERE id=?");
         $query->execute([$nombre,$pathImg,$id]);
     }
-//cambiando
+
     function cargarImagen($imagen){
         $target = 'img/artista/' . uniqid() . '.jpg';
         move_uploaded_file($imagen, $target);

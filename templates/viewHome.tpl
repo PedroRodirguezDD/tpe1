@@ -1,6 +1,6 @@
 
-
-<table class="table table-dark table-striped-columns">
+<div class="container-fluid">
+<table class="table table-dark table-striped-columns" >
     <thead>
         <tr>
             <th>Nombre</th>
@@ -33,5 +33,5 @@
 
     </tbody>
 </table>
-
+</div>
 {include file="footer.tpl"}

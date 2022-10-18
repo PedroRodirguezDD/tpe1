@@ -1,12 +1,11 @@
 {include file="header.tpl"}
 
 {include file="form_artista.tpl"}
-
+<div class="container">
 <h2>Lista de artistas:</h2>
-<ul>  
+<div style="display:flex; align-items:flex-end;flex-wrap:wrap;justify-content:space-around"> 
     {foreach from=$artistas item=$artista }
-        <li>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 20rem;margin: 1rem;" >
                 <img src="{$artista->imagen}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">{$artista->nombre} - id: {$artista->id}</h5>
@@ -17,9 +16,8 @@
                     {/if} 
                 </div>
             </div>
-        </li>
     {/foreach}
-</ul> 
-
+</div>
+</div>
 
 {include file="footer.tpl"}
